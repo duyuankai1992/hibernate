@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.yztc.demo.entity">
+	<class name="Emp" table="emp" dynamic-update="true" dynamic-insert="true">		
+		<id name="empNo" column="empno" type="integer">
+			<generator class="native"/>
+		</id>
+		<property name="ename" column="ename" length="20"/>
+		<property name="sal" length="20"/>
+		<property name="hiredate" length="18"/>
+		<!-- 多对一映射 -->
+		<many-to-one name="dept" column="deptno" lazy="proxy" class="Dept" fetch="select"/>
+	</class>
+</hibernate-mapping>
